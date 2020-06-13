@@ -1,0 +1,19 @@
+@printer Storybook
+@back black id:Story scale:1.5
+@wait 0.5
+Once upon a time, in a land far east, there lived a girl.
+@bgm MokouMusicBox
+@back frame1.CircleReveal params:3.33 time:1 id:Story scale:1.5
+Her father was a noble, and always busy.
+Despite him being home rarely, he always took the time to play with her.
+He was strict sometimes, but also very kind. 
+All her live He told her she had to stay home, never to leave the house.
+She did not understand why, but she did as she was told, living day by day within her four walls.
+The girl was often alone, but she was happy and she loved her father dearly.
+@back frame2.Crossfade time:1 id:Story scale:1.5
+One day, the girl heard of a beautiful princess who came from the moon.
+The princess was said to be the most fair in all the land.
+The girls father proclaimed “I will marry the princess!”
+@back frame32.Crossfade time:1 id:Story scale:1.5
+And so the father left to ask for the princesses hand in marriage.
+@stop

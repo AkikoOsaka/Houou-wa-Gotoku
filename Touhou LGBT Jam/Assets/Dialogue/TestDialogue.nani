@@ -1,0 +1,31 @@
+@set m_alc=0
+@back  id:bar scale:2.5
+@char Reisen pos:50,10
+@printer Bubble.Left pos:80,70 visible:false time:0
+@printer SelfBubble.Left pos:60,10 visible:false time:0
+Reisen: Wow, I didn't know there was a bar so close to Eientei.
+Mokou: It's relatively new. I think a Ramenshop was in this building before.
+Mokou: But, y'know, this place isn't exactly close to the main road.
+Mokou: I can't imagine many people came here to get ramen.
+Reisen: I hope this bar turns out to be good.
+Reisen: Having a place to relax after work so close to work would be great.
+Reisen: Anyways, what did you wanted to talk about, Fujiwara-San?
+Mokou: Eh? Do I really need a reason to hang out with you?
+Reisen: ...
+Reisen: You know, we aren't exactly "friends"
+Mokou: I mean-
+Reisen: We aren't colleagues either.
+Mokou: But-
+Reisen: You also, lest you forget, try to murder my employer on a regular basis.
+Mokou: That's... true, but ya wouldn't count me to your enemies either, right?
+Reisen: I suppose so. If nothing else, you have actually helped out more than caused harm.
+Reisen: You do bring people to Eirin-sama, from time to time.
+Reisen: And Kaguya-sama can't exactly die, now can she.
+Reisen: Fighting with you seems to at least somewhat keep her entertained.
+@set m_alc+=1
+Mokou: ...you don't really have to remind me of that...
+Mokou: I kinda just wanted ta... y'know, just hang out with someone
+Mokou: Talking about random stuff
+Mokou: y'know, maybe we even get to be friends, haha
+
+@stop
