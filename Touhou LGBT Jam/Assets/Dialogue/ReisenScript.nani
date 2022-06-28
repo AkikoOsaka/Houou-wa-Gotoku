@@ -1,0 +1,896 @@
+@save
+@char Mokou pos:-100,-100 visible:false
+@char Reisen pos:-100,-100 visible:false
+
+;Setting up all the variables
+;Variable that determines how drunk Mokou is. Important for unlocking Keine Talks
+@set mAlc=0
+
+;Variables for special dialogue options
+@set ReisenMoon=false
+
+;Variables for Topic Work
+@set WorkReisenJob=false
+@set WorkEientei=false
+@set WorkMoon=false
+@set WorkTeaching=false
+
+;Variables for Topic People
+@set PeopleReisen=false
+@set PeopleKaguya=false
+@set PeopleEirin=false
+@set PeopleTewi=false
+@set PeopleMystia=false
+@set PeopleKeine=false
+
+;Variables for Topic Town
+@set TownYoukai=false
+@set TownCrime=false
+@set TownMoon=false
+@set TownSpellcard=false
+@set TownNightIncident=false
+@set TownFlowerIncident=false
+
+;Variables for Topic Freetime
+@set FreetimeFriends=false
+@set FreetimeAlcohol=false
+@set FreetimeFighting=false
+@set FreetimeDanmaku=false
+@set FreetimeFood=false
+
+@back black scale:1.5
+@wait 1
+@back Bar id:Bar scale:1 time:0.5
+@wait 0.1
+
+@printer Bubble.Right pos:50,60 visible:false time:0
+@printer SelfBubble.Left pos:50,60 visible:false time:0
+@bgm Reisen
+@char Reisen.Surprise pos:80,-50
+@char Mokou.Smile pos:20,-50
+
+Reisen: I was not aware there was a bar in such close proximity to Eientei.
+Mokou.Happy: It's relatively new. I think it was a ramen shop before.
+Mokou: But, y'know, this place isn't exactly close to the main road.
+Mokou: I can't imagine many people came here to get ramen.
+Reisen.Happy: I hope this bar proves it’s staying power.
+Reisen: Having a place to relax after work would help immensely.
+Reisen: I’ll be sure to provide the bar with my continued patronage.
+Reisen.Default: In any case, what did you want to talk about, Fujiwara-San?
+Mokou.Default: Eh? Do I really need a reason to hang out with you?
+Reisen.Angry: ...
+Reisen: You know, we aren't exactly "friends"
+Mokou.Awkward: I mean-
+Reisen: We aren't colleagues either.
+Mokou.Concern: But-
+Reisen: You also, lest you forget, try to murder my employer on a regular basis.
+Mokou.Awkward: That's... true, but ya wouldn't count me to your enemies either, right?
+Reisen.Default: I suppose so. If nothing else, you have actually helped out more than caused harm.
+Reisen: You do bring people to Eirin-sama, from time to time.
+Reisen: Fighting with you seems to at least somewhat keep Kaguya-hime entertained.
+Reisen: And she can't exactly die, now can she.
+@char Mokou.Angry
+@wait 0.4
+@char Mokou.Awkward
+Mokou: ...you don't really have to remind me of that...
+Mokou.Smile: I kinda sorta just wanted ta... y'know, just hang out with someone.
+Mokou.Happy: Talking about random stuff... y'know.
+Reisen.Surprise: ...
+Mokou.Happy: ...
+Reisen.Default: Very well, let's talk.
+
+#Topics
+@save
+@hidePrinter
+@choice Work handler:ChoiceList goto:.TopicWork 
+@choice People handler:ChoiceList goto:.TopicPeople
+@choice Town handler:ChoiceList goto:.TopicTown
+@choice Freetime handler:ChoiceList goto:.TopicFreetime
+@choice Love handler:ChoiceList goto:.TopicLove if:"mAlc >= 7"
+@stop
+
+#TopicWork
+@save
+@hidePrinter
+@choice "Reisen’s Job" handler:ChoiceList goto:.WorkReisenJob if:"WorkReisenJob==false"
+@choice "What even is Eientei" handler:ChoiceList goto:.WorkEientei if:"WorkEientei==false"
+@choice "Reisen's previous Job" handler:ChoiceList goto:.WorkMoon if:"ReisenMoon == true && WorkMoon == false"
+@choice "Teaching" handler:ChoiceList goto:.WorkTeaching if:"mAlc == 1 && WorkTeaching == false"
+@choice "Change Topic" handler:ChoiceList goto:.Topics
+@stop
+
+#WorkReisenJob
+Mokou.Happy: I wanna know more about your job.
+Reisen.Surprise: My job?
+Mokou.Default: Yeah, I mean, I know you work at Eientei for Kaguya but…
+Mokou.Happy: Y’know, what do you do exactly?
+Reisen.Default: Well, if I had to describe it, I’d say I’m Kaguya-hime’s servant and Eirin-sama’s personal assistant.
+Mokou: And that means…
+Reisen: That means that I do whatever is required of me.
+Reisen: Guarding the princess, delivering messages, giving directions to other servants...
+Reisen: Most of the time it means running errands for them, in essence.
+Mokou.Default: So you are basically their goon.
+Reisen.Surprise: I wouldn’t put it that way.
+Mokou.Happy: Now that you mention it, there are others like you, right?
+Reisen.Default: We have a lot of rabbits in our employ, both Earth and Moon rabbits, yes.
+Mokou.Awkward: There is a difference? 
+Mokou.Concern: Wait, there are rabbits on the moon?
+Reisen.Surprise: I mean, yes, I am from the moon and I’m a rabbit.
+Mokou.Happy: I… can’t say that it should be surprising, I just didn’t know you were a moon rabbit.
+Mokou: Well, I wasn’t aware that you were from the moon to begin with.
+Reisen.Default: I suppose it doesn’t make much of a difference to humans.
+Reisen: Earth Rabbits and Moon Rabbits seem to be identical to humans. 
+Reisen.Angry: Well, any human I’ve met at least.
+Mokou: You can’t really expect people to know the difference if they aren’t aware that there are even two different kinds of rabbits.
+Reisen.Default: To be fair I’m not even sure if Kaguya-hime really knows a difference between the two. 
+Reisen: She calls all of “Inaba”. I’m just one of many “Inaba”.
+Reisen.Surprise: It’s a little bit depressing, to be honest with you.
+Mokou.Default: …
+@char Mokou.Drink
+@set mAlc=mAlc+1
+@wait 0.5
+Mokou.Default: What is the difference then.
+Reisen.Default: …
+Reisen: You know, now that you mention it, it would be hard to explain to you.
+@char Mokou.Happy
+Reisen: There are some subtle differences in appearance, but I guess non-rabbits wouldn’t pick up on them.
+Reisen: But beyond superficial differences, the two are very different a physiological and metaphysical levels. 
+Mokou: …
+Reisen: ...earth and moon rabbits tick a little differently is what I’m saying.
+Mokou: So what you are saying is, I probably couldn’t tell a difference if I tried.
+Reisen: Essentially, yes. But I suppose if you had spend a long time with both kinds, you might be able to pick up on some differences.
+Mokou: Meaning it’s not something I’d probably do.
+Mokou.Smile: Got it.
+Mokou.Default: You called yourself their “personal assistant” though.
+Reisen.Surprise: Yes?
+Mokou: If you are just one of many, why would you be their personal assistant then?
+Reisen.Default: Well, now that you mention it, Eirin-sama does call me her favorite servant.
+Reisen.Happy: In contrast to Kaguya-hime, Eirin-sama calls me by name…
+Reisen: Well, she has a nickname for me, but still.
+Mokou.Smile: Sounds like you are popular with your boss. Good for you.
+Reisen: Yes, I suppose.
+@set WorkReisenJob=true
+@set ReisenMoon=true
+@goto .TopicWork
+
+#WorkEientei
+Mokou.Default: Hey Reisen, explain me this.
+Reisen.Default: What is it?
+Mokou.Awkward: What do you guys at Eientei even do.
+Reisen: What do you mean?
+Mokou.Default: Well, I mean, I know Eientei is basically just the name of the big mansion and stuff…
+Mokou: But like, having such a big mansion needs money. 
+Mokou: Not to mention that all you little goons of that there immortal bitch also live there.
+Mokou.Happy: And last time I’ve seen you all work at Eientei, right?
+Reisen.Angry: I would like you to refrain from calling the princess that, but you do have a point there…
+Mokou: So? What do you guys even do, as an organization I mean?
+Reisen.Default: Believe it or not, I don’t really know.
+Mokou.Awkward: C’mon, don’t lie to me.
+Reisen: I am not. I’m just following orders, I’m not very involved in the business side of things.
+Reisen: I guess though that Eirin-sama does produce pharmaceuticals and we distribute those.
+Reisen: Plus, we own a lot of land around the area and receive money from those properties.
+Reisen: We also provide protection services.
+Mokou.Default: Sooooo, you are yakuza.
+Reisen.Surprise: What? No, why would you think that?
+Mokou: Well, sounds to me a hell of a lot like the yakuza.
+Mokou.Awkward: You guys are not involved in that?
+Reisen.Default: No, not to my knowledge. We are an independent organization, to my knowledge at least.
+Mokou.Happy: Then what you call that organization then?
+Reisen: ...a real-estate business? 
+Mokou.Default: A real-estate business that owns a lot of turf, happens to distribute medicine and gets protection money from smaller businesses around their turf.
+Reisen.Angry: ...please don’t put it that way…
+Reisen: You are making it sound like we are criminals.
+Mokou: Hey, I’m just saying.
+Reisen: ...Could we change the subject?
+Mokou.Happy: Sure.
+@set WorkEientei=true
+@goto .TopicWork
+
+#WorkMoon
+Mokou.Happy: You mentioned having lived on the moon before.
+Reisen.Default: Yeah, what about it?
+Mokou: What were you doing for a living back then? 
+Mokou.Default: Assuming you even had jobs.
+Mokou.Awkward: Then again, you ended up on earth somehow…
+Reisen: Well, to be honest, it was much like today. 
+Reisen: I was a member of the royal guard. 
+Mokou.Happy: Really? Sounds important.
+Reisen.Surprise: I wouldn’t exactly say that... it was just another job.
+Reisen.Default: The Lunar Capital is very isolated from any other realm, so there weren’t many threats to deal with.
+Reisen.Happy: I have to say, life on the moon was very laid back…
+Reisen.Default: As you may know, lunar technology is way more advanced than anything you can find nowadays here on earth.
+Reisen: Well, nowadays earth technology is starting to approach that of the moon…
+Reisen: But it’s still a far cry from what we had on the moon.
+Reisen.Happy: Thanks to that, life was very carefree. It was nice.
+Mokou.Default: How did you end up here then?
+Reisen.Surprise: I’m saying life was very carefree, but it wasn’t perfect. 
+Reisen: You were basically forbidden from leaving the capital, out of fear that someone, somehow, could figure out how to get to the capital.
+Reisen: Life on the moon, according to official statements, was only able to be so good because the moon was a spiritually pure realm. 
+Reisen: Earth on the other hand was seen as the place of the unpure. 
+Reisen: Having to live on earth was like a capital punishment for the people of the moon, a fate worse than death.
+Reisen: Because of this, the capital was isolated and the court lived in constant fear of the capital being discovered.
+Reisen: It was quite oppressive sometimes.
+Mokou.Default: How the hell would anybody figure out that there is a city on the moon.
+Mokou.Concern: I mean, I know about it and I still can’t imagine how such a thing could exist.
+Mokou: So how in the hell would somebody discover it, let alone get there?
+Reisen.Default: You’d be surprised, but according to legend, there was a man a long time ago, who somehow landed on the moon, near the capital.
+Reisen: It is unknown how he did that, but my former master took him in out of the kindness of her own heart. 
+Reisen: Even so, he was never told the truth. They told him something about the capital being the dragon palace at the bottom of the ocean.
+Reisen: I don’t know what happened to him after that. I never verified the story with her highness. 
+Mokou.Happy: That story sounds familiar… I think there was a legend about someone like that.
+Mokou: Well anyways, back to topic. 
+Mokou: You haven’t explained how you got here.
+Reisen: Right. 
+Reisen: Besides that legend of the man who traveled to the moon, there have been invasions from Earth.
+Reisen: From what I recall, the first invasion was orchestrated by a small army of earthlings.
+Reisen.Surprise: I think they used some sort of magic to get to the moon.
+Reisen: I wasn’t born yet when that happened, though, so I don’t know much about it.
+Reisen.Angry: However, about 30 years ago, a group of humans was sent to the moon to claim the moon as the property of some country.
+Reisen: Their objective being to plant a flag.
+Mokou.Awkward: That’s it?
+Reisen.Surprise: It sounds banal if you say it like this, but for the Capital, it was a huge deal.
+Reisen: Planting that flag could pollute the moon, which would’ve been a disaster.
+Reisen: Life on the moon would’ve ceased to exist. 
+Mokou: That serious?
+Reisen.Angry: I’m afraid so. The spiritual purity of the moon is a fickle matter.
+Reisen.Default: Either way, Members of the royal guard, me included were dispatched in a preemptive strike against the invaders.
+Reisen.Angry: Suffice it to say, things didn’t go as planned.
+Mokou: I though lunar technology was more advanced.
+Mokou: I’d assume you’d mop the floor with these guys.
+Reisen.Default: You would think so, but command sorely underestimated these humans and their weaponry. 
+Reisen.Angry: My unit was wiped out and I had to flee. 
+Reisen.Default: Somehow, while fleeing through the lake of tranquility, I was transported to earth.
+Reisen: I tried getting back but…
+Reisen: It seems it is way easier going from the moon to earth than the other way around.
+Reisen: Soon after that, I met Eirin-sama, and she took me in.
+Mokou.Default: So you were a soldier in that conflict, huh?
+Reisen: Well, I was whatever the court needed me to be.
+Reisen: It’s just what the role of a royal guard entails.
+Mokou: I assume you have given up on going back, then.
+Mokou: If you were the sole survivor of your unit, I guess they just assumed you were killed as well.
+Reisen.Surprise: That… is not entirely correct.
+Mokou.Concern: Oh?
+Reisen.Default: You see, Moon Rabbits can communicate telepathically with each other.
+Reisen: It’s one of the things that makes us different from the Earth rabbits.
+Reisen.Surprise: A few months ago, I received a transmission from a rabbit on the moon.
+Reisen: She was an old colleague of mine.
+Reisen: Apparently, there has been another invasion and since I was one of the first rabbits to fight humans, they wanted me back.
+Mokou.Default: You didn’t want to?
+Mokou: I mean, all things considered, living on the moon sounds pretty neat.
+Reisen.Angry: It’s… complicated.
+Reisen: I can’t say I don’t miss living on the moon but…
+Reisen: Earth has it’s own charm. 
+Reisen: Sure, there is a lot more trouble here.
+Reisen.Happy: But that is part of what makes it endearing.
+Mokou.Happy: I couldn’t say, either way. I’ve only lived on earth.
+Mokou: Well, as long as you are happy here.
+Reisen: Yeah… Besides…
+Mokou.Default: Huh?
+Reisen.Default: It’s… complicated… but, you know, I don’t think I ever felt anything akin to ‘loyalty’ to the lunar court.
+Reisen: It was just my job.
+Reisen.Happy: With Eirin-sama and Kaguya-hime, it feels like this is what I really want to do. This is where I want to be.
+Mokou.Happy: I hope they appreciate you then.
+@set WorkMoon=true
+@goto .TopicWork
+
+#WorkTeaching
+Mokou.Concern: You know, I was thinking of maybe switching things up myself.
+Reisen.Default: Meaning?
+Mokou.Awkward: A switch of career paths, I mean.
+Reisen.Surprise: Oh, that’s interesting. What did you have in mind?
+Mokou.Blush: I was thinking… maybe… I could try my hand at being a teacher?
+Reisen.Happy: Pffff!
+Mokou.Angry: Hey, what’s so funny!
+Reisen: Oh, nothing, nothing, it’s just…
+Reisen.Surprise: You don’t really strike me as the teaching type.
+Reisen: What gave you the idea anyways?
+Mokou.Blush: Uhm… It’s just… Keine always seems so passionate about her job, being a teacher and all…
+Mokou.Awkward: So I felt like it could be a nice change of pace if nothing else.
+Reisen.Default: Well, I have very limited experience in that field myself.
+Reisen: I was a drill instructor for a few months that one time, though.
+Reisen: If human children are anything like rabbits, it’s a lot of work.
+Mokou.Concern: No, I get that, I get that.
+Reisen: What would you like to teach anyways?
+Mokou.Happy: I know I’m not the smartest, what with me spending the last 1000 years or so just roaming the countryside and fighting…
+Mokou: But what I am good at is fighting.
+Mokou.Smile: So I thought, maybe being a Physical Education teacher would be good for me.
+Reisen: I suppose that sounds reasonable.
+Reisen.Surprise: I do have to wonder though. How does one become a teacher?
+Mokou.Awkward: That… is a good question.
+Reisen.Default: Couldn’t you ask that teacher friend of yours?
+Mokou: ….
+@char Mokou.Drink
+@set mAlc=mAlc+2
+@wait 1
+Mokou.Blush: ...I suppose that would be a good place to start…
+Mokou.Awkward: Anyways, let’s talk about something else.
+Reisen: Fair enough.
+@set WorkTeaching=true
+@goto .TopicWork
+
+#TopicPeople
+@save
+@hidePrinter
+@choice "Reisen" handler:ChoiceList goto:.PeopleReisen if:"PeopleReisen == false"
+@choice "Kaguya" handler:ChoiceList goto:.PeopleKaguya if:"PeopleKaguya == false"
+@choice "Eirin" handler:ChoiceList goto:.PeopleEirin if:"PeopleEirin == false"
+@choice "Tewi" handler:ChoiceList goto:.PeopleTewi if:"PeopleTewi == false"
+@choice "Mystia" handler:ChoiceList goto:.PeopleMystia if:"PeopleMystia == false"
+@choice "Keine" handler:ChoiceList goto:.PeopleKeine if:"mAlc == 5 && PeopleKeine == false"
+@choice "Change Topic" handler:ChoiceList goto:.Topics
+@stop
+
+#PeopleReisen
+Mokou.Happy: Why not tell me a little bit about yourself?
+Reisen.Surprise: Me?
+Reisen: Oh, I don’t know what there is to tell, really.
+Reisen: I mean, I suppose you know enough about me, anyways.
+@set PeopleReisen=true
+@goto .TopicPeople
+
+#PeopleKaguya
+Mokou.Awkward: Even if I don’t like it… maybe it’d be good if you told me about Kaguya.
+Reisen.Default: What do you want to know?
+Mokou.Default: Wait.
+@char Mokou.Drink
+@set mAlc=mAlc+2
+@wait 1
+Mokou.Happy: Okay, here we go. Tell me how she ended up here.
+Reisen.Surprise: ....alright.
+Reisen.Default: Well, all this happened a very long time ago-
+Mokou: Roughly 1300 years ago, I assume.
+Reisen: I… suppose so…
+Reisen: In any case. Kaguya-hime is somewhat of a reviled figure in lunar history. 
+Reisen.Surprise: She is kind of a legendary figure, actually.
+Reisen.Default: I don’t know what happened exactly but…
+Reisen: It is said that she was exiled for a crime she committed. 
+Reisen: After decades in exile, she was forgiven for her crime by the royal court.
+Reisen: They send an envoy to bring her back to the moon, but…
+Reisen: she slaughtered them all and went into hiding.
+Reisen: Among the ambassadors was Eirin-sama.
+Reisen: Murdering a Lunarian is a severe enough crime as is, let alone the murder of multiple. 
+Reisen.Angry: But killing someone as distinguished and important as Eirin-sama…
+Reisen.Surprise: People were outraged, suffice it to say. 
+Reisen.Default: Her actions branded Kaguya-hime as a traitor to the moon.
+Reisen: And so, she became enemy number 1, the arch-traitor Kaguya Houraisan.
+Reisen: Or so the legend goes.
+Mokou.Default: I’m almost surprised that she has always had a pension for ruining people’s lives 
+Mokou.Awkward: Wait, hold up. You just said Eirin was killed by Kaguya.
+Mokou: Last time I checked, she was still breathing.
+Reisen.Surprise: Yes, that is what confused me as well.
+Reisen.Default: I met Eirin-sama shortly after I came to earth.
+Reisen:Surprise: I was shocked to say the very least.
+Mokou: So what’s going on, does that mean they were in cahoots all along?
+Reisen: I don’t know. I’ve never asked.
+Mokou.Concern: C’mon, aren’t you curious? I’d think that’d be like the first thing you’d ask in that situation.
+Mokou.Default: Well, okay, I guess meeting someone for the first time and asking ‘why are you not dead?” is probably bad form. 
+Mokou.Happy: It’s probably bad manners at the very least.
+Reisen.Default: At least you understand.
+Mokou: Well, at the very least I now know what her deal is, somewhat…
+Reisen: That is good to hear.
+Mokou.Angry: Doesn’t make me hate her less. Maybe even more. I don’t know.
+Reisen.Surprise: ...
+@char Mokou.Happy
+@set PeopleKaguya=true
+@goto .TopicPeople
+
+#PeopleEirin
+Mokou.Happy: Tell me about Eirin.
+Reisen.Surprise: Eirin-sama? 
+Reisen.Default: Well, she is a very prolific figure, even legendary. 
+Reisen: How long Eirin-sama has been alive is unknown, but she is noted to have been alive for most of the moon’s history.
+Reisen: She is a masterful alchemist and brilliant scientist.
+Reisen: A lot of technology that exists on the moon was based on her research.
+Mokou.Awkward: Isn’t she the popular one. 
+Reisen: She is indeed. 
+Reisen.Surprise: Her assumed death was a huge tragedy. 
+Mokou.Default: ...she is alive though. 
+Reisen.Default: Unbeknownst to the moon, it seems.
+Mokou.Concern: That is pretty weird.
+Reisen: Indeed.
+Mokou.Default: I mean, didn’t they sort of maybe figure out she might be alive by now?
+Reisen.Surprise: We are not sure. They might be, they might not be.
+Reisen.Default: I only know we haven’t had an assassin or the sort come to earth.
+Mokou.Happy: Well anyways, besides all that, you seem to be very fond of her.
+Reisen.Surprise: Working for someone you heard your entire life about, a living legend…
+Reisen.Happy: is pretty great, to be frank. 
+Mokou: Not a case of ‘never meet your heroes?’
+Reisen: I wouldn’t say so, no.
+Reisen: She is very much how I imagined her to be.
+Reisen: I would dare to even say she might be more brilliant than the legends make it out to be.
+Mokou.Awkward: That smart?
+Reisen.Surprise: She is taking care of running the organization, alongside her research and taking care of the princess’s needs.
+Mokou: (Do I want to know… never mind)
+Mokou.Concern: ...knowing Kaguya, she is probably a hand full…
+Mokou: I guess I should give Eirin more credit.
+@set PeopleEirin=true
+@goto .TopicPeople
+
+#PeopleTewi
+Mokou.Default: So what’s the deal with the rabbit you always hang out with, what’s-her-face.
+Reisen.Surprise: I assume you mean Tewi-san. 
+Mokou.Happy: Yeah, that one.
+Reisen.Default: I don’t know what to say. We work together. She helps to intermediate between us Moon Rabbits and the Earth Rabbits.
+Mokou: Doesn’t seem like you are too fond of her.
+Reisen: I don’t resent her…
+Reisen: It’s just…
+Reisen.Angry: She is a slacker. She often just does whatever she pleases instead of doing her job.
+Reisen: I don’t want to tolerate such behavior.
+Mokou: I assume you have told her that.
+Reisen: More times than I could care to remember.
+Mokou.Awkward: Oh well, I guess some people, right?
+Reisen: It seems so, as much as I hate to admit it...
+@set PeopleTewi=true
+@goto .TopicPeople
+
+#PeopleMystia
+Mokou.Happy: What do you think of Mystia.
+Reisen.Surprise: ...excuse me? 
+Mokou.Default: Doesn’t ring a bell?
+Reisen: I can’t say that I think I’ve heard the name before.
+Mokou: She is that young-looking bird Youkai who runs that weird little food stall in the shopping street.
+Reisen.Default: Now that you mention it, I think I’ve seen her around, yes. 
+Reisen: I don’t think I ever bought anything from her stall, though.
+Mokou.Happy: I think I did once or twice. It’s alright… just, her stall is a tad weird.
+Reisen: How so?
+Mokou.Awkward: Well, first off, her main product she advertises is grilled lamprey.
+Reisen.Surprise: G-Grilled… Lamprey?
+Mokou.Default: Yeah, it is a substitute for yakitori, apparently.
+Mokou: She has other stuff too, like tempura shrimps, mostly fish but…
+Mokou: Grilled lamprey is the ‘main attraction’, as it were.
+Reisen: I have to say, I’m not entirely familiar with Japanese cuisine…
+Reisen.Default: I mean, to be fair, I have lived here for the better part of 3 decades but…
+Reisen.Surprise: Never have I heard of grilled lamprey, not to my knowledge at least.
+Mokou.Default: Trust me, I have lived here in Japan for the better part of a century and I STILL have never heard of grilled lamprey.
+Reisen: Well, I suppose innovation is a good thing…
+Reisen: What did you mean by “yakitori” substitute?
+Mokou: As it seems she is against people eating birds, so she wants to sell fish.
+Reisen: It does make sense… 
+Mokou.Awkward: I’m not saying it doesn’t make sense, I’m just saying lamprey is the last thing I expected as a substitute.
+Reisen: Then tell me, how does it taste?
+Mokou: Uhm… I guess it’s unique in flavor, but I’d rather eat yakitori. 
+Reisen: Well, I guess I will go see for myself at some point.
+Mokou: You do that.
+@set PeopleMystia=true
+@goto .TopicPeople
+
+#PeopleKeine
+Mokou.Concern: Hey Reisen…
+Reisen.Surprise: Yes?
+Mokou.Blush: What… what do you think of Keine?
+Reisen: Do you mean the human you are usually with?
+Mokou.Blush: Y-yeah.
+Reisen.Default: Well, I can’t say I have had any chance to talk to her for any meaningful measure of time…
+Reisen: But I will say that she seems very kind.
+Mokou.Concern: What makes you think that? I mean, she is but-
+Reisen: As far as I can recall, she has almost always picked you up and taken you with her when you’ve had a fight with Kaguya-hime. 
+Reisen: She was always very polite and apologetic for causing trouble. 
+Reisen: We should be thanking her, to be honest.
+Reisen: Keine-san seems so concerned whenever she sees you after the fight.
+Reisen: It is kind of remarkable, actually. 
+Reisen: You can not die, yet she always finds it in her heart to worry about you.
+Reisen: That, I would say, marks her as quite the remarkably kind person.
+Mokou.Default: To be fair, I do feel pain. I just have grown used to it over the years.
+Mokou.Awkward: It gets easier over time, dying over and over, y’know.
+Mokou.Concern: Whenever I tell Keine that it’s not a big deal since I can’t die or anything…
+Mokou: She says it’s not the fact I could die in a fight that worries her.
+Mokou: It’s the fact that I get hurt, that I feel pain from the fight.
+Mokou: That is what worries her.
+Reisen.Surprise: Why do you still fight the princess then?
+Mokou.Angry: BECAUSE-
+Mokou.Concern: …
+Mokou.Awkward: I honestly don’t know anymore.
+Mokou.Default: It’s been a long long while since I became immortal.
+Mokou: Kaguya ruined the life I had back when I was a child.
+Mokou: I wanted revenge, which is what drove me until now.
+Mokou: Hell, it drove me to drink that stupid elixir in the first place.
+Mokou: Now that I’ve found Kaguya and we fought for the past 300 years or so…
+Mokou: Well… I can’t exactly kill her. She’s immortal, same as me.
+Mokou.Awkward: Revenge kind of loses all meaning when you can never ever enact it.
+Mokou.Default: So now I feel like it’s all pointless and I wasted my time... and I should just bury the hatchet or something…
+Mokou: At the same time, it would feel like it would have been for nothing if I gave up.
+Mokou: In short, I guess I feel obligated to keep this blood feud alive.
+Mokou: To be fair, Kaguya doesn’t make it any easier to quit since she regularly sends assassins after me. 
+Mokou: 90% they don’t even know who I am. Man, I feel bad for those guys…
+Reisen: I… I didn’t know that... I wouldn’t have thought…
+Mokou: There is a reason why I hate her, y’know.
+Reisen: …
+Reisen: Okay, so, to get back on topic…
+Reisen: You are fighting out of a morbid sense of obligation?
+Mokou.Awkward: I mean if you put it like that… well, I guess you are right.
+Reisen.Default: Keine-san means a lot to you too, doesn’t she?
+Mokou.Concern: What? It’s just… y’know… 
+Mokou: …
+Mokou.Blush: She does…
+Reisen: Then maybe you want to consider burying the hatchet, then. Or find other ways to defeat the princess.
+Mokou.Awkward: Other ways? Like… in, not fighting to the death?
+Reisen: You know, the mistress has become quite passionate about video games as of late.
+Reisen: Fighting Games in particular.
+Reisen: Having a rival she cannot beat would surely deliver a decisive blow to the princess.
+Reisen: It might sound silly, but at the very least you wouldn’t need to worry Keine-san this way.
+Mokou: …
+Mokou: ...man, stop saying stupid shit like that…
+Mokou: …
+Mokou: I’ll consider it...
+@set PeopleKeine=true
+@goto .TopicPeople
+
+#TopicTown
+@save
+@hidePrinter
+@choice "Youkai & Humans" handler:ChoiceList goto:.TownYoukai if:"TownYoukai == false"
+@choice "Crime" handler:ChoiceList goto:.TownCrime if:"TownCrime == false"
+@choice "Spellcards" handler:ChoiceList goto:.TownSpellcard if:"TownSpellcard == false"
+@choice "Relations to the Moon" handler:ChoiceList goto:.TownMoon if:"TownMoon == false"
+@choice "Night Incident" handler:ChoiceList goto:.TownNightIncident if:"TownNightIncident == false"
+@choice "Flower Incident" handler:ChoiceList goto:.TownFlowerIncident if:"TownFlowerIncident == false"
+@choice "Change Topic" handler:ChoiceList goto:.Topics
+@stop
+
+#TownYoukai
+Mokou.Happy: It is kind of strange how humans and youkai just sort of live together.
+Reisen.Surprise: How so?
+Mokou.Default: I suppose you might not know how things used to be but…
+Mokou: while Yokai have always existed since humans could thing, basically…
+Mokou: They were always in the shadows, basically known to people through legends and hearsay 
+Mokou: When I was little, I was always scared of them.
+Mokou: Anyways, at some point, they just became more aggressive.
+Mokou: I honestly haven’t been paying attention to what was going on at the time, so I don’t know how it happened exactly…
+Mokou: ...but somehow Youkai and Humans just started living together.
+Mokou: It’s sort of weird to me to see creatures that I grew up hearing about in legends being my neighbors and stuff like that.
+Reisen.Default: Well, things have been like this ever since I came to earth.
+Reisen: But I do have to say, from what I hear in the news, Japanese yokai are way more integrated into society than youkai elsewhere.
+Mokou.Happy: Well, it is probably due to the fact that our youkai live off of mischief and being feared. 
+Mokou: From what I heard, western youkai are usually more malicious. 
+Mokou: Eating the flesh of humans or drinking their blood to survive…
+Mokou: Not that we don’t have Youkai like that too, but it is just rarer. 
+Mokou.Smile: That, plus there are enough legends about youkai being friendly towards humans or even benevolent beings…
+Mokou.Concern: I guess we are just culturally more inclined to accept youkai as people.
+Reisen.Surprise: Hmm… I guess it would be hard for someone who is required to feed on humans to live peacefully alongside humans, without hurting them.
+Mokou.Awkward: Yeah… It’s not like I can imagine what it’s like, but I assume it must be rough.
+Mokou: It’s not just that, but also that people will always see them as a possible danger to their life.
+Mokou: Youkai like that are basically born on a very short leash.
+Mokou: That must suck…
+Reisen.Default: Indeed.
+Reisen: You often hear of crimes committed by Youkai in the news.  With what you said in mind, one can assume many of these crimes are being committed because of these reasons.
+Mokou.Concern: You’d think so, right? It doesn’t help the situation though. 
+Reisen: Well, at least people are making strides to create ways for these youkai to also live peacefully alongside humans.
+Reisen: Blood drives and such similar initiatives surely will pay off in the long run.
+Mokou.Happy: Here's hoping.
+@set TownYoukai=true
+@goto .TopicTown
+
+#TownCrime
+Mokou.Concern: You know, I wonder how Gensokyo-shi’s crime rate is compared to the rest of Japan…
+Reisen.Surprise: That is an odd thought for the average person to consider.
+Mokou.Default: Y’know, I deal with a lot of shady characters on a daily business.
+Mokou: Freelance bodyguard work doesn’t really allow you to be picky with your clients.
+Mokou: So I think I have had run-ins with every single criminal organization the city has to offer.
+Mokou: ...and there are quite a few.
+Mokou: The yakuza alone have a pretty strong presence here. 
+Mokou.Awkward: ...honestly I wished they would do a better job at keeping crime of the streets.
+Reisen: What do you mean?
+Mokou.Default: Well, I don’t think I have ever had a stroll at night where someone didn’t either try to mug me, or I had to save someone else.
+Mokou.Awkward: Honestly, some of these petty thieves are way too ballsy for my liking.
+Mokou: Come to think of it, it happens here in the district more than anywhere else.
+Reisen.Surprise: ...Here in the district? Really?
+Mokou: Yeah. What’s up with that?
+Reisen: Urgh, I suppose I have to talk with Tewi about this…
+Mokou.Concern: Huh?
+Reisen: Keeping the peace in the district falls to the earth rabbits, we moon rabbits have other duties.
+Mokou.Default: Okay, you lost me.
+Reisen.Default: To put it simply, although earth and moon rabbits have a lot in common....
+Reisen: Moon Rabbits are averse towards open confrontations.
+Reisen: We might have a greater potential for magic, but we would rather resolve things peacefully. 
+Reisen: Earth Rabbits in contrast are more eager in such a situation.
+Reisen: As such, Eientei uses us moon rabbits in roles that require less direct approaches to resolving conflict.
+Reisen: For example guarding the estate, or delivering messages.
+Mokou.Default: Huh…
+Mokou.Awkward: So why if you guys are supposed to keep the streets clean, why do I have to knock people out all the time?
+Reisen.Surprise: That is something I’d like to know as well. Which is why I said I had to ask Tewi about this matter.
+Mokou: Honestly, some yakuza you are… usually, the yakuza manage a better job of keeping petty crime in check.
+Reisen.Angry: Ya- We are not yakuza.
+Mokou.Default: Then how else would you describe your organization?
+Reisen: We are- ... a business.
+Mokou: A business.
+Reisen.Default: A business that works in real-estate and provides medical services.
+Mokou: Unconvincing, but fair enough.
+@set TownCrime=true
+@goto .TopicTown
+
+#TownMoon
+Mokou.Concern: You said something about assassins from Earth coming to the moon or something, right?
+Reisen.Default: The Invasion, yes.
+Mokou.Default: What do you think are relations between the moon and earth like nowadays?
+Reisen.Surprise: Uhm… That is a complicated question.
+Reisen.Default: Although, I assume the people of Earth, in general, don’t know about the existence of the lunar capital.
+Reisen: The legend of Princess Kaguya might be the only surviving link between the two.
+Reisen: As much as the Capital wants to sever that threat too, I assume they just can’t.
+Mokou.Awkward: How can you fight in a war against people that don’t even know you exist?
+Reisen.Surprise: I don’t know. 
+Reisen: I assume someone, probably a person in power, has to know and have orchestrated the invasion.
+Reisen: The general population is blissfully unaware though, I am sure.
+Mokou.Happy: Fair enough, I guess.
+@set TownMoon=true
+@goto .TopicTown
+
+#TownSpellcard
+Mokou.Happy: Is it just me or are there more magic duels going on in the last couple of years?
+Mokou.Awkward: I don’t know, but it just feels like the whole magic duel thing has become pretty popular.
+Reisen.Surprise: Now that you mention it, I remember that a new law was passed a few years ago.
+Reisen.Default: The Spell Card Laws, if I am not mistaken.
+Mokou.Default: Spell Card Laws? First I heard of it.
+Mokou: Speaking of Spell Cards though, I remember that something changed about the way people fight…
+Mokou: I think it was around the time that whole shebang with the red mist happened…?
+Mokou: Maybe it was a few years earlier, but, I remember nobody really caring about spell cards.
+Mokou.Awkward: Nowadays, nobody really wants to have a go if you don’t have a spell card prepared.
+Reisen: Yes, I believe that has something to do with these laws.
+Mokou.Default: Maaaan, what happened to the good ol’ days where ya just tossed fireballs at each other until one couldn’t anymore.
+Reisen.Angry: ...Please don’t throw fireballs around haphazardly. 
+Mokou: Why? I have yet to start a fire I didn’t want.
+Reisen.Surprise: ...I assume this behaviour is part of why these laws came into effect.
+Reisen.Default: After all, when society changes, laws must too.
+Reisen: Speaking of which, I heard something interesting in the news recently.
+Reisen.Surprise: It seems like the city is considering allowing same-sex couples to marry within city limits. 
+Mokou.Blush: Huh?!
+Reisen.Default: Well, It is a bit surprising, given the countries stance on the matter.
+Reisen: Although, I do remember seeing quite a few young women around town being very close with each other. 
+Reisen: I wonder if the relationship many of them had did not stop at being friends. 
+Reisen: If so, this law might be a result of this.
+Reisen: To be honest, I don’t really understand why this isn’t law nationwide.
+Reisen: Same-sex relationships have never been a problem on the moon.
+Reisen: It seems a bit silly to me that it is a problem for the people of Earth, I must say.
+Mokou: …
+Mokou.Awkward: Hey, uhm… It would just be Gensokyo-shi, though, right?
+Reisen: Well, yes, I assume it would only affect this city.
+Mokou: *sigh*
+Mokou.Concern: I wonder… could this be a thing nationwide at some point?
+Reisen.Surprise: You seem quite invested in the topic.
+Mokou.Awkward: Uhm… L-Let’s change the subject.
+@char Mokou.Drink
+@set mAlc=mAlc+2
+@wait 1
+@char Mokou.Happy
+Reisen.Default: Very well.
+@set TownSpellcard=true
+@goto .TopicTown
+
+#TownNightIncident
+Mokou.Default: What was the deal with that incident the other day?
+Mokou: Y’know, that one where the night wouldn’t end.
+Reisen.Surprise: Uhm…
+Mokou: It was a real hassle, man. All these Youkai suddenly going crazy.
+Mokou: I had to run all over town, knocking people out left and right.
+Mokou: And on top of that, I couldn’t find Keine anywhere!
+Mokou: Man…
+Reisen: …
+Mokou: Say, Reisen.
+Reisen: …
+Mokou: Kaguya was behind that somehow, wasn’t she?
+Mokou: I’m sure of it.
+Reisen.Angry: There… wasn’t really any choice…
+Reisen: The moon… they send ambassadors to apprehend me. 
+Reisen: When I received that transmission, and I told Eirin-sama, she and Kaguya-hime set the plan in motion.
+Reisen: She said that she could never allow them to find us. Neither me, nor Kaguya-hime.
+Reisen: We feared that, if we didn’t replace the moon with a fake one, it would not only destroy Eientei, but maybe even threaten the city as a whole.
+Reisen: Eirin-sama said it herself when the capital found Kaguya in the city, they would probably destroy the city…
+Reisen: To keep her existence, and that of the lunar capital, from becoming known.
+Mokou.Angry: …
+Reisen.Default: … are you angry?
+Mokou: Very, but this is basically just a drop in the bucket. 
+Mokou.Default: Just another bullet point on my “why Kaguya is a shit” list.
+Reisen: I… understand… but, please, rest assured that we have taken measures against this happening again.
+Reisen: Eientei is separated from this reality by magic Eirin-sama developed. 
+Reisen: The moon will never find the manor.
+Reisen: She said that they would never dare to destroy an entire city without clear proof of Kaguya-hime being here. 
+Reisen: as long as they can’t find Eientei and consequently, the princess, Gensokyo-shi is safe.
+Mokou: ...You better hope they don’t...
+Mokou: Man, after I’ve finally found a place to live, Kaguya goes and fucks everything up again. Honestly...
+@set TownNightIncident=true
+@goto .TopicTown
+
+#TownFlowerIncident
+Mokou.Default: So, what was up with that thing a few weeks ago?
+Mokou: Y’know, that thing where the entire city was covered head to toe in flowers?
+Mokou: Do you know anything about that?
+Reisen.Default: I don’t know anything in particular detail myself.
+Mokou.Awkward: So that means you do know something.
+Reisen: At the time I was looking for Tewi.
+Reisen: She disappeared shortly after the flowers started blooming. 
+Reisen: When I finally caught up to her, she challenged me to a fight out of the blue.
+Reisen: After putting Tewi in her place, the shrine maiden appeared and said to ‘leave the rest up to her’.
+Mokou.Default: Basically, you know nothing.
+Reisen: Yes, that is what I was trying to tell you.
+Reisen: All that I saw were flowers, and people challenging me to fights.
+Reisen: It was a rather weird incident, all things considered.
+Mokou.Happy: Well… at least the flowers were pretty.
+Reisen.Blush: I… agree with that sentiment.
+@set TownFlowerIncident=true
+@goto .TopicTown
+
+#TopicFreetime
+@save
+@hidePrinter
+@choice "Friends" handler:ChoiceList goto:.FreetimeFriends if:"FreetimeFriends == false"
+@choice "Alcohol" handler:ChoiceList goto:.FreetimeAlcohol if:"FreetimeAlcohol == false"
+@choice "Fighting" handler:ChoiceList goto:.FreetimeFighting if:"FreetimeFighting == false"
+@choice "Danmaku" handler:ChoiceList goto:.FreetimeDanmaku if:"FreetimeFighting == true && FreetimeDanmaku == false"
+@choice "Food" handler:ChoiceList goto:.FreetimeFood if:"FreetimeFood == false"
+@choice "Change Topic" handler:ChoiceList goto:.Topics
+@stop
+
+#FreetimeFriends
+Mokou.Happy: So, since we are hanging out like two old buddies…
+Mokou: What do you usually do when you hang out with friends?
+Reisen.Default: To be honest, I don’t usually go out much.
+Reisen: I’m happily married to my work.
+Reisen: Although, I do go out on occasion with my colleagues. 
+Reisen: I’d say they are the closest I have in regards to ‘friends’.
+Mokou.Smile: Heh, I guess we are in kind of the same boat then.
+Mokou.Concern: Aside from the fact that I don’t have a fixed occupation… so I don’t have any real work buddies…
+Mokou: ...and not a lot of friends in general, come to think of it.
+Reisen: What about that teacher you are usually with?
+Mokou.Blush: K-Keine?!
+Mokou.Awkward: …
+Mokou.Concern: Uhm… Keine doesn’t drink much, so I can’t exactly take her out to drink with me…
+Reisen: You are aware that there are other things you can do with friends, besides drinking, right?
+Reisen: I assume you see Keine-san quite often, you do seem very close…
+Reisen: What do you usually do when you are with her.
+Mokou.Blush: T-Talking!? Talking, mostly!
+Reisen.Surprise: ...Like we are doing right now?
+Mokou.Awkward: Exactly!
+Reisen: Huh… 
+@char Mokou.Drink
+@set mAlc=mAlc+2
+@wait 1
+@char Mokou.Default
+Reisen: Fair enough.
+@set FreetimeFriends=true
+@goto .TopicFreetime
+
+#FreetimeAlcohol
+Mokou:Happy: Do you like alcohol, Reisen?
+Reisen: I honestly do. I wouldn’t have thought that I would at first, but I do.
+Reisen: At first I felt obliged to do so since it is part of the local culture. 
+Reisen: I have to say, that after a while, the relief of stress brought by alcoholic beverages is very appealing.
+Mokou.Smile: Good to hear, I agree with you there, haha
+@set FreetimeAlcohol=true
+@goto .TopicFreetime
+
+#FreetimeFighting
+Mokou.Happy: Y’know, when I’m bored I sometimes go out and look for a fight.
+Reisen.Default: I’ve noticed. 
+Reisen: After all, you appear at our estate quite frequently, challenging Kaguya-hime to deadly duels and such.
+Mokou.Angry: That is an entirely different matter, and you know it!
+Mokou.Default: Anyways, do you have the desire to… y’know, wreck face?
+Reisen: I have to admit that I’m not particularly fond of violence. 
+Reisen: Most Moon Rabbits aren’t, I believe.
+Mokou: I didn’t enjoy it at first either. It was just something I had to do… 
+Mokou: Well, I’d say to ‘survive’ but…
+Reisen: I understand.
+Mokou.Happy: Yeah, so, at first I just did it to defend myself.
+Mokou: I started to learn magic to make it easier on me.
+Mokou: When I became competent at using fire magic and fist fighting…
+Mokou.Smile: It began being fun. 
+Reisen: Is it fun for you to fight Kaguya-hime, too?
+Mokou: I… I don’t know how to answer that.
+Reisen: Very well. 
+Reisen: Please don’t be too reckless when you are having your ‘fun’ with the princess.
+Reisen: Repairs can get quite costly.
+Reisen: Besides, the human that picks you up afterwards seem to be exceedingly worried for your well being.
+@char Mokou.Blush
+Reisen: I’d advise you to not make her worry too much
+Mokou: ...
+@char Mokou.Concern
+@set FreetimeFighting=true
+@goto .TopicFreetime
+
+#FreetimeDanmaku
+Mokou.Concern: So I know you don’t like fighting, but what is your stance towards a Spell Card Battle?
+Mokou.Happy: Those seem to be popular these days, and I’d say they are generally a lot safer than your regular ordinary street fight.
+Reisen.Default: I’m not very knowledgeable on the matter, I have to admit.
+Reisen: Mainly, because I don’t like fighting. 
+Reisen: So the fights I am involved in usually are more of a lethal nature, sadly.
+Reisen: Though the matter of spell card duels puzzles me a bit.
+Reisen: Haven’t duels of this nature existed since at least the last 3 decades?
+Reisen: I do distinctly remember being shocked how casually these duels had been carried out back when I came to earth.
+Mokou.Default: Nah, Spell Cards have existed back then, but they weren’t as common. 
+Mokou: Nowadays, magic duels for fun and sports are almost always carried out with Spell Cards. 
+Mokou: That has been a very recent phenomenon, though. 
+Mokou.Happy: Maybe… 3 years? 5 years? I’m terrible at keeping track of time.
+Reisen: Well, as I said, I am not very knowledgeable on the subject. I will take your word for it.
+@set FreetimeDanmaku=true
+@goto .TopicFreetime
+
+#FreetimeFood
+Mokou.Happy: You rabbits still need to eat food, right?
+Reisen.Default: Certainly. I could not come up with a reason that would convince you otherwise.
+Mokou: So, what kinda food do you like?
+Reisen.Surprise: It is quite embarrassing because it seems to be kind of a stereotype, but I’m very fond of mochi. 
+Mokou: Haha, Yeah, no I get you. 
+Mokou.Smile: People often give me weird looks when I tell them I like Yakitori, so I understand what you mean.
+Reisen: Why would anybody find this weird?
+Mokou.Happy: Well, you see, I have a bit of a reputation on the streets. 
+Mokou: Because of my immortality and my affinity for fire magic, some have assumed that I’m a phoenix. 
+Mokou: So, word got around and now a lot of people tell stories about the phoenix of Taketori-ku
+Mokou: When people recognize me and see me eating yakitori, they get freaked out by it.
+Mokou: Y’know, because a bird eating another bird is cannibalism or something like that.
+Reisen.Default: Hmm… I am not entirely familiar with the dietary needs of phoenixes…
+Reisen: ...but I do know birds of prey sometimes eat smaller birds.
+Reisen: It might be considered normal for phoenixes to eat birds, but I couldn’t know either way.
+Mokou.Default: Yeah, you tell that to those guys. I wouldn’t know either, to be honest.
+Mokou.Happy: You could ask your boss. She might know.
+Reisen.Surprise: I could do that...
+Mokou: Ah well, I don’t really care. If they wanna think of me as a phoenix that eats chicken, so be it.
+Reisen.Default: Fair enough.
+@set FreetimeFood=true
+@goto .TopicFreetime
+
+#TopicLove
+Mokou.Awkward: Say, Reisen… 
+Reisen.Default: Yes?
+Mokou.Concern: …. have you ever… uhm… fallen in love with someone before?
+Reisen.Surprise: I had a feeling you wanted to talk about something like this.
+Mokou.Blush: …
+Reisen.Default: As for an answer to your question, I have not.
+Reisen: To be quite honest, I’m not interested in men… or women, for that matter.
+Reisen: As such, I’m not very versed in romantic matters.
+Reisen: I will concede, however, that I do enjoy reading romantic novels and manga on occasion.
+Mokou.Awkward: Wait… not interested in men or women at all? Like, at all? And you still read romance stories?
+Reisen: I am more interested in the idea of love as a concept and less with the actual application of this concept. Especially relationships-
+Reisen: I just don’t feel a need to engage with someone in such a fashion.
+Reisen.Blush: Besides, I’m already happily married to my work.
+Mokou.: I think I’ve never heard of someone like that before…
+Mokou.Smile: ...but I will admit that it’d be plenty hypocritical of me to badmouth ya.
+Mokou.Happy: I guess you just have to explain it to me at some point.
+Reisen: More importantly, I don’t assume you came here just to ask me about my stance on the matter.
+Reisen: And you don’t seem romantically interested in me either.
+Reisen: So, would you care to explain what you wanted to talk about, Fujiwara-san?
+Reisen: I will say that I have a hunch onto what is going on, but I don’t want to assume.
+Mokou.Awkward: ...It’s- uhm… 
+Mokou.Blush: ...I am in love with Keine.
+Mokou.Awkward: She doesn’t know that but I’ve been for a while now. I haven’t found the courage yet, too.
+Reisen.Happy: It seems a tad ironic that you of all people couldn’t find the courage to do something.
+Mokou.Angry: ...this is hard for me, okay? I’ve never been in this situation before. Don’t mock me.
+Reisen.Default: I wasn’t trying to mock you. Please, continue.
+Mokou.Concern: Well anyways. A few days ago, Keine told me that her parents are trying to push her into an arranged marriage.
+Mokou: She doesn’t seem to like it, but knowing her, she will probably go along with it anyways.
+Reisen.Surprise: Why would her parents push for something like this? Why would Keine-san go along with it anyways.
+Mokou: It’s… complicated. I think it has to do with the fact that she is nearing her 30’s.
+Mokou: I think what happened is that since Keine hasn’t had a boyfriend yet, her parents want to ‘help’ her by just arranging a marriage. 
+Mokou: There is some kind of dumb expectation put onto women that they should be married before they turn 30 or something.
+Mokou: As if they aren’t fit for marriage and thus unfit for love if they don’t.
+Mokou: I can imagine that Keine only wants to go along with it because of these dumb expectations.
+Mokou: She has always been the one to do what people expect of her.
+Reisen: Hmm, it does make sense on some level, as human lifespans are so short…
+Reisen.Default: But at the same time, especially nowadays, it should be left up to the individual.
+Mokou.Awkward: That’s what I’m thinking, too.
+Mokou: But y’know, society and its dumb expectations.
+Mokou: Anyways, I know I don’t have the right to tell Keine whether or not she should go along with this.
+Mokou: But I feel like, if she does, I will lose her forever. Not just that my feelings will go unrequited, but that I will lose her as a friend.
+Mokou: At the same time, I’m afraid that she doesn’t want anything to do with me if she knew how I felt.
+Reisen.Surprise: ...and you wanted to ask me for advice on the matter.
+Mokou.Concern: To be honest, I don’t know who else I could talk to. 
+Mokou: I’m sorry if it’s too much to ask. Like you said, we aren’t exactly close…
+Mokou: I just don’t know anyone I’d trust with this. 
+Reisen: Why trust me at all?
+Mokou.Awkward: I don’t know, you just seem very trustworthy. Very diligent. You also have a unique perspective on things…
+Mokou: ...since you are basically a foreigner and all.
+Reisen.Default: Very well, I will give you my advice then.
+Reisen: Go and talk to Keine-san about this.
+Mokou.Blush: W- What?
+Reisen: Confess your feelings to her.
+Reisen: However she may react, if you don’t bring your feelings up to her, your feelings will stay forever unsaid.
+Reisen: And since you are the kind to hold grudges, you will most likely regret it for the rest of your life.
+Reisen: Besides, I cannot imagine her abandoning you over this. 
+Reisen: It is quite clear that she cares very much about you. 
+Reisen: I can not see the two of you going separate ways because of your feelings for her.
+Mokou: …
+Mokou.Smile: You are right. 
+Mokou.Happy: I have to go. Right now.
+Reisen.Blush: Leave your tab to me. 
+Mokou: ….thanks, Reisen.
+Reisen: No need to thank me. Just take care of my tab the next time we go out like this.
+Mokou: I will. I owe you.
+@goto KeineScript
+@stop

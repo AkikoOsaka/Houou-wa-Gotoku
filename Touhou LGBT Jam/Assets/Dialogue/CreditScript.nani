@@ -1,0 +1,32 @@
+@Sfx Fool Fade:1
+@back Credit1.CircleReveal id:Credits scale:0.8 
+@wait 2
+
+@back Credit2.Crossfade id:Credits time:2 scale:0.8
+@wait 4
+@back Credits3.Crossfade id:Credits time:6 scale:0.8
+@back Credits4.Crossfade id:Credits time:6 scale:0.8
+@back Credits6.Crossfade id:Credits time:6 scale:0.8
+@back Credits65.Crossfade id:Credits time:6 scale:0.8
+@back Credits7.Crossfade id:Credits time:6 scale:0.8
+@back Credits8.Crossfade id:Credits time:6 scale:0.8
+@back Credits9.Crossfade id:Credits time:6 scale:0.8
+@back Credits10.Crossfade id:Credits time:6 scale:0.8
+@back Credits11.Crossfade id:Credits time:6 scale:0.8
+@back Credits12.Crossfade id:Credits time:6 scale:0.8
+@back Credits13.Crossfade id:Credits time:6 scale:0.8
+@back Credits14.Crossfade id:Credits time:6 scale:0.8
+@back Credits15.Crossfade id:Credits time:6 scale:0.8
+@back Credits3.Crossfade id:Credits time:6 scale:0.8
+@back Credits16.Crossfade id:Credits time:6 scale:0.8
+@back Credits3.Crossfade id:Credits time:6 scale:0.8
+@back Credits17.Crossfade id:Credits time:6 scale:0.8
+@back Credit2.Crossfade id:Credits time:6 scale:0.8
+@wait 4
+@back Park.Crossfade id:Credits time:6 scale:0.8
+@back Park2.Crossfade id:Credits time:6 scale:0.8
+@back Jam.Crossfade id:Credits time:6 scale:0.8
+@wait 10
+@stopSfx fade:15
+@title
+@stop

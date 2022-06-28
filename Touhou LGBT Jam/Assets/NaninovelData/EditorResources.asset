@@ -37,7 +37,7 @@ MonoBehaviour:
     Resources:
     - Name: Bubble
       PathPrefix: TextPrinters
-      Guid: b47d9659b2be5ee4e95a776f213c9d4b
+      Guid: ea6bac45f4ec1c2438b731d20b580546
   - Id: TextPrinters/248f9087-de01-48d3-b6b3-fdaa30896cbd
     Resources:
     - Name: TMProDialogue
@@ -122,7 +122,7 @@ MonoBehaviour:
       Guid: 671ceb4f549ddf046913d7debf113469
     - Name: LoadingUI
       PathPrefix: UI
-      Guid: 53aad00e5cf184e458adb001c550518a
+      Guid: 54685c45f6260034c8e2ee9a98a68bec
     - Name: MovieUI
       PathPrefix: UI
       Guid: f9a211517d1cb1a44964dc2254463049
@@ -137,13 +137,13 @@ MonoBehaviour:
       Guid: e3b234b4273b7f64ab3f1d9fe425ed23
     - Name: SettingsUI
       PathPrefix: UI
-      Guid: 65c37f59e9b266f468dd5381fdc03fc3
+      Guid: 45896c073f24fe741bf174162c630335
     - Name: TipsUI
       PathPrefix: UI
       Guid: f5aae572225ee1b4c96d1a17fc5cb073
     - Name: TitleUI
       PathPrefix: UI
-      Guid: 4b121aa1be1b7e04480b452c595ff17a
+      Guid: c6947be2f2aac594ca0e75ff75605322
     - Name: VariableInputUI
       PathPrefix: UI
       Guid: bb95f484e341dcd4391a572f22b7d067
@@ -155,11 +155,23 @@ MonoBehaviour:
     - Name: IntroScript
       PathPrefix: Scripts
       Guid: 13c176fcba5ec2749b52b016d6d47fef
+    - Name: ReisenScript
+      PathPrefix: Scripts
+      Guid: 622ddcaf677b7fa47907c2dbc26c6b32
+    - Name: KeineScript
+      PathPrefix: Scripts
+      Guid: cbfe09896cba0cf4ea49e50ed4871633
+    - Name: CreditScript
+      PathPrefix: Scripts
+      Guid: 6db1832355ae8a148ab4977375fd17ad
+    - Name: TitleScript
+      PathPrefix: Scripts
+      Guid: 9fb39ed2058b5784ba3429720df5cd9f
   - Id: Backgrounds/f47d3f85-961c-40d0-a0fb-e76c76aca099
     Resources:
     - Name: Bar
-      PathPrefix: Backgrounds
-      Guid: 55488314b23d8e24a95ffc839f25a713
+      PathPrefix: Backgrounds/Bar
+      Guid: 34d6555602fb6844b872c6741ab538d2
   - Id: Backgrounds/f2451290-d96e-4aa1-9e48-029443e1b36a
     Resources:
     - Name: frame1
@@ -174,6 +186,45 @@ MonoBehaviour:
     - Name: black
       PathPrefix: Backgrounds/Story
       Guid: e0bb61f856710ae459c09e4da7b926ef
+    - Name: frame4
+      PathPrefix: Backgrounds/Story
+      Guid: e75f5767ce82022449edb433007fdf95
+    - Name: frame5
+      PathPrefix: Backgrounds/Story
+      Guid: b26b48aef3166e04ab457ffff424dd5b
+    - Name: frame6
+      PathPrefix: Backgrounds/Story
+      Guid: 1f139b0eef075b54da9bdb481481b96f
+    - Name: frame7
+      PathPrefix: Backgrounds/Story
+      Guid: 2a2dd6cc0dc82f94893abdaef000ff8f
+    - Name: frame8
+      PathPrefix: Backgrounds/Story
+      Guid: bdecfa2e56177c14687d78d890da1817
+    - Name: frame9
+      PathPrefix: Backgrounds/Story
+      Guid: 523f92805d963a448a12de289b6fa6f1
+    - Name: frame10
+      PathPrefix: Backgrounds/Story
+      Guid: 1403653bed0408e44bf67f2d26c21e73
+    - Name: frame12
+      PathPrefix: Backgrounds/Story
+      Guid: 5c5ea722f43c71d4bb9109a84b62f014
+    - Name: frame13
+      PathPrefix: Backgrounds/Story
+      Guid: 0b7e02ee6be00ff458f640a2518b085e
+    - Name: frame14
+      PathPrefix: Backgrounds/Story
+      Guid: 1e15f149843d0824e8c7fac4a8c57c17
+    - Name: frame15
+      PathPrefix: Backgrounds/Story
+      Guid: fc6d604dede078745b3482a6fb1bd773
+    - Name: frame16
+      PathPrefix: Backgrounds/Story
+      Guid: 97163c37d85221343b872d98521ffcf5
+    - Name: frame18
+      PathPrefix: Backgrounds/Story
+      Guid: 41dc2c3c65e10a4439986a3ebb6a9b10
   - Id: TextPrinters/87023726-a60c-4230-a188-2c8d3055298f
     Resources:
     - Name: Storybook
@@ -184,3 +235,211 @@ MonoBehaviour:
     - Name: MokouMusicBox
       PathPrefix: Audio
       Guid: 3a407c472a8dc11459a6c0b4d75059fa
+    - Name: Reisen
+      PathPrefix: Audio
+      Guid: 2791fe3b8a3fa4f44b71a3c062db5172
+    - Name: Title
+      PathPrefix: Audio
+      Guid: 112807bea1e3eac42b777dde7d099bc0
+    - Name: KeineIntro
+      PathPrefix: Audio
+      Guid: 93be45aad6c6099498a13fb42f5d734f
+    - Name: KeineMuted
+      PathPrefix: Audio
+      Guid: 15908ea744be5df4da66fadf3ca89df4
+    - Name: KeineClimax
+      PathPrefix: Audio
+      Guid: 65b05ddd965a4e643b75f6e70fddef9d
+    - Name: TestMessageSound
+      PathPrefix: Audio
+      Guid: 3764f74bb5a48cb49872cb8f9b0ef467
+    - Name: MessageMokou
+      PathPrefix: Audio
+      Guid: 4f448d80854a685479f2694c358a090e
+    - Name: MessageKeine
+      PathPrefix: Audio
+      Guid: 5544cf3dd9501574a9ac99fca2ff439c
+    - Name: MessageReisen
+      PathPrefix: Audio
+      Guid: bb1f7fecff431cc47a85592a2ba268bd
+    - Name: Fool
+      PathPrefix: Audio
+      Guid: a380838880d76814f99a92a7cd9b5cad
+    - Name: Heart
+      PathPrefix: Audio
+      Guid: 1f73da78060ae3e41afed6fc3a14f548
+    - Name: Door
+      PathPrefix: Audio
+      Guid: fbfed768e3906024ca22ac57664d9817
+    - Name: City
+      PathPrefix: Audio
+      Guid: 3a6910507d1d0954887cf353d1182611
+    - Name: Bell
+      PathPrefix: Audio
+      Guid: 4aaf6fe0a2d0b244eb60334ceffc223f
+    - Name: Breathing
+      PathPrefix: Audio
+      Guid: 580f51b3fa57a8643a8c26eb4af99ea2
+  - Id: Characters/f0142885-7da1-4d3b-8275-40cba668d53d
+    Resources:
+    - Name: Default
+      PathPrefix: Characters/Reisen
+      Guid: c2b3d0cc4bef9fb4db74a63302977e57
+    - Name: Blush
+      PathPrefix: Characters/Reisen
+      Guid: 5f674abf79fc30b4da3c9f136cf40ec5
+    - Name: Angry
+      PathPrefix: Characters/Reisen
+      Guid: 715fbc3a16d65a04e96c059184214383
+    - Name: Happy
+      PathPrefix: Characters/Reisen
+      Guid: fb7803c85e51bae4aaf370f08611f9d6
+    - Name: Surprise
+      PathPrefix: Characters/Reisen
+      Guid: 4dd1a8d5b74d72c479d753a5e223b21e
+  - Id: Characters/6c732f02-484f-45ae-a693-2a5ed90d413c
+    Resources:
+    - Name: Default
+      PathPrefix: Characters/Keine
+      Guid: 30ca9df1a2f3d1841ad1dc7af469109c
+    - Name: Sad
+      PathPrefix: Characters/Keine
+      Guid: 2787c94cff065dd4f9aedb20a5f42a8d
+    - Name: Happy
+      PathPrefix: Characters/Keine
+      Guid: e34d100bdbdb26e40bc0733bbf60133d
+    - Name: Concern
+      PathPrefix: Characters/Keine
+      Guid: 0a374778f4c0e59459e20f8f00ae174d
+    - Name: Surprise
+      PathPrefix: Characters/Keine
+      Guid: 289ed9fe718a0b4478e8e70aef02b8be
+  - Id: TextPrinters/d8b13fa3-d1e9-4936-9df1-077142525edd
+    Resources:
+    - Name: SelfBubble
+      PathPrefix: TextPrinters
+      Guid: ea6bac45f4ec1c2438b731d20b580546
+  - Id: Characters/ff114f23-064a-4e57-b62d-43b728e1ca71
+    Resources:
+    - Name: Default
+      PathPrefix: Characters/Mokou
+      Guid: a62e9965f20056e478599f366b54632e
+    - Name: Angry
+      PathPrefix: Characters/Mokou
+      Guid: 4b8396dedf9528b4fa20ea52bc4f965b
+    - Name: Blush
+      PathPrefix: Characters/Mokou
+      Guid: 3072d4a787849ec4284112f2e04617c9
+    - Name: Drink
+      PathPrefix: Characters/Mokou
+      Guid: d5da27d5c9b06804a9207875f1506ab4
+    - Name: Smile
+      PathPrefix: Characters/Mokou
+      Guid: 550a9b5517593ee4ab700aef50c46812
+    - Name: Happy
+      PathPrefix: Characters/Mokou
+      Guid: 21a86e71a7f25f44d9b72898283f4968
+    - Name: Concern
+      PathPrefix: Characters/Mokou
+      Guid: ea918c6b446528a48ad3f9cd93bc9ee5
+    - Name: Awkward
+      PathPrefix: Characters/Mokou
+      Guid: be8aa77ab301a5f41b45f740baf8de76
+    - Name: Exhausted
+      PathPrefix: Characters/Mokou
+      Guid: ad18e4c068bd67547a7abce4247bc9cc
+    - Name: Unhappy
+      PathPrefix: Characters/Mokou
+      Guid: 1013d507dbd4ada46ac3c40e5016143c
+  - Id: Backgrounds/1bb3ee4c-4b42-4180-a5dd-351c0d14a725
+    Resources:
+    - Name: title
+      PathPrefix: Backgrounds/MainBackground
+      Guid: e636a15749dbe524dbfecdf3331a360c
+    - Name: black
+      PathPrefix: Backgrounds/MainBackground
+      Guid: e0bb61f856710ae459c09e4da7b926ef
+    - Name: disclaimer
+      PathPrefix: Backgrounds/MainBackground
+      Guid: 0557acbd867b3e4439b2f1cdba4a6001
+  - Id: Backgrounds/3003e93d-4694-443e-9cb8-7c8582938b60
+    Resources:
+    - Name: Room
+      PathPrefix: Backgrounds/Room
+      Guid: 4a0ece9d2e45f67439277990ab3f2983
+    - Name: Outside
+      PathPrefix: Backgrounds/Room
+      Guid: 06a9dc2b272a1b9499bb368b29deff76
+    - Name: OutsideLight
+      PathPrefix: Backgrounds/Room
+      Guid: 7df7cdfeee9d6204f9d25fd07577f88e
+  - Id: ChoiceHandlers/35f24032-c2ab-4318-a462-844acd98564f
+    Resources:
+    - Name: ChoiceList
+      PathPrefix: ChoiceHandlers
+      Guid: 8e4d40be31b8d1d4e82ed752a06a3398
+  - Id: Backgrounds/8482d36c-0768-4bf2-81c2-e83c096f6132
+    Resources:
+    - Name: Credit1
+      PathPrefix: Backgrounds/Credits
+      Guid: 107f9095a87d79c42b195b1bd8cccdf9
+    - Name: Credit2
+      PathPrefix: Backgrounds/Credits
+      Guid: 69de069e46d8a8f4fa51039d7c64a5f4
+    - Name: Credits3
+      PathPrefix: Backgrounds/Credits
+      Guid: d48c6e38c9834fb4cbc0e0fa9d8a4fcf
+    - Name: Credits4
+      PathPrefix: Backgrounds/Credits
+      Guid: 0ce830c466e3abb4cbcb316b48cb28bc
+    - Name: Credits5
+      PathPrefix: Backgrounds/Credits
+      Guid: 285e79ba012aad2448332c94a729ae8b
+    - Name: Credits6
+      PathPrefix: Backgrounds/Credits
+      Guid: 42b070e29ec8b83478df3f93c91a97ff
+    - Name: Credits65
+      PathPrefix: Backgrounds/Credits
+      Guid: 8eda601d1245d11499aad6e47f91ec4e
+    - Name: Credits7
+      PathPrefix: Backgrounds/Credits
+      Guid: 3b1a589fbef1b034891179b156960ffc
+    - Name: Credits8
+      PathPrefix: Backgrounds/Credits
+      Guid: 62022f3ede704bc42b63d3bde2eb0efb
+    - Name: Credits9
+      PathPrefix: Backgrounds/Credits
+      Guid: 0a12a564c256aa64987de6e4c70257b1
+    - Name: Credits10
+      PathPrefix: Backgrounds/Credits
+      Guid: 6b3701024bd47ad4ba04dc9f06599456
+    - Name: Credits11
+      PathPrefix: Backgrounds/Credits
+      Guid: 1a86d697d7672f6409dce055e7193e2d
+    - Name: Credits12
+      PathPrefix: Backgrounds/Credits
+      Guid: e957b480b8bd5e9439b96c9c25707e9e
+    - Name: Credits13
+      PathPrefix: Backgrounds/Credits
+      Guid: e08e863d8058652419fab95fd943ef70
+    - Name: Credits14
+      PathPrefix: Backgrounds/Credits
+      Guid: 9fccaceda11f8fe4fb00d9bdee5eeee8
+    - Name: Credits15
+      PathPrefix: Backgrounds/Credits
+      Guid: 0314862fb43acce4ea496e3474f3e6dd
+    - Name: Park
+      PathPrefix: Backgrounds/Credits
+      Guid: 867cad503cc329243a4c7128e4e57697
+    - Name: Park2
+      PathPrefix: Backgrounds/Credits
+      Guid: 20f10eb35a572954790013bb42818d4e
+    - Name: Jam
+      PathPrefix: Backgrounds/Credits
+      Guid: be96a13ae91631c49b698f27565cddf7
+    - Name: Credits16
+      PathPrefix: Backgrounds/Credits
+      Guid: 9968598713463c341ba53ba7051d01e5
+    - Name: Credits17
+      PathPrefix: Backgrounds/Credits
+      Guid: 67fe6a4611ebb22428c549949eccbb25

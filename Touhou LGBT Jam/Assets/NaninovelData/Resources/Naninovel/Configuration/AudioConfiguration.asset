@@ -30,7 +30,7 @@ MonoBehaviour:
   DefaultBgmVolume: 1
   DefaultSfxVolume: 1
   DefaultVoiceVolume: 1
-  EnableAutoVoicing: 0
+  EnableAutoVoicing: 1
   VoiceOverlapPolicy: 1
   CustomAudioMixer: {fileID: 0}
   MasterVolumeHandleName: Master Volume

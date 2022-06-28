@@ -1,0 +1,6 @@
+@back disclaimer.Crossfade time:0.5
+@wait 2
+@back black.Crossfade scale:1.5 time:2
+@bgm Title fade:2
+@back title.Crossfade scale:1 time:2
+@stop

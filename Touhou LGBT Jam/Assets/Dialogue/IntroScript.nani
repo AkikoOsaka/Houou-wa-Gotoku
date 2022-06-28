@@ -6,14 +6,66 @@ Once upon a time, in a land far east, there lived a girl.
 @back frame1.CircleReveal params:3.33 time:1 id:Story scale:1.5
 Her father was a noble, and always busy.
 Despite him being home rarely, he always took the time to play with her.
-He was strict sometimes, but also very kind. 
-All her live He told her she had to stay home, never to leave the house.
-She did not understand why, but she did as she was told, living day by day within her four walls.
+He was strict sometimes, but also very kind.
+All her life he told her she had to stay home, never to leave the house.
+She did not understand why, but she did as she was told, living day by day within the four walls.
 The girl was often alone, but she was happy and she loved her father dearly.
 @back frame2.Crossfade time:1 id:Story scale:1.5
 One day, the girl heard of a beautiful princess who came from the moon.
 The princess was said to be the most fair in all the land.
-The girls father proclaimed “I will marry the princess!”
+The girl's father proclaimed “I will marry the princess!”
 @back frame32.Crossfade time:1 id:Story scale:1.5
-And so the father left to ask for the princesses hand in marriage.
-@stop
+And so, the father left to ask for the princess’s hand in marriage.
+@back frame4.Crossfade time:1 id:Story scale:1.5
+When he met the princess, she gave him a challenge.
+Five artifacts must be retrieved before he can take the princess as his bride.
+He accepted the challenge and departed.
+@back frame32.Crossfade time:1 id:Story scale:1.5
+The father returned home to boast once more.
+“I will marry the princess,” he said before departing on his quest.
+One day passed.
+A week, a month, and even a year passed, but there was no sign of him returning.
+Her father would never return home.
+@back frame5.Crossfade time:1 id:Story scale:1.5
+Her father was the only person to be nice to her, and she missed him bitterly.
+The girl became sad, then she became very angry.
+“It’s the princess's fault my father won’t return!”, she said.
+She swore revenge for what the princess did…
+…and one day, she found a chance.
+@back frame6.Crossfade time:1 id:Story scale:1.5
+The little girl heard word of a magical elixir the princess once gifted to the emperor.
+The emperor was scared of the elixir, as he thought it was too powerful.
+He ordered his soldiers to throw it into Mt. Fuji, so no one could have it.
+If she could take the elixir for herself, she had a chance to get back at the princess!
+@back frame7.Crossfade time:1 id:Story scale:1.5
+For the first time, the girl left her house.
+@back frame8.Crossfade time:1 id:Story scale:1.5
+@back frame9.Crossfade time:1 id:Story scale:1.5
+She walked and walked, as far as her feet could carry her and then she reached Mt. Fuji
+@back frame10.Crossfade time:1 id:Story scale:1.5
+However, her feet were too tired. The girl could walk no longer.
+The girl started to cry, as she could not climb the mountain. The elixir was still so far away.
+@back frame12.Crossfade time:1 id:Story scale:1.5
+Just then, a man appeared. It was one of the soldiers who the emperor sent to throw the elixir into the volcano.
+@back frame13.Crossfade time:1 id:Story scale:1.5
+He helped her up and so together they climbed.
+@back frame14.Crossfade time:1 id:Story scale:1.5
+Soon they reached the top.
+“He had been so nice to me…” she thought.
+But she promised to herself and a promise she must keep.
+Together they stood there, on top of the volcano.
+She stood there, thinking how nice the man was to her.
+The only other person to show her kindness.
+She took a step back…
+@back frame15.Crossfade time:1 id:Story scale:1.5
+…and then she pushed him into the pit.
+@back frame16.Crossfade time:1 id:Story scale:1.5
+The girl took the elixir and ran as fast as she could, down the mountain.
+@back frame10.Crossfade time:1 id:Story scale:1.5
+She was alone once more and she started to cry again.
+@stopBgm
+@back frame18.Crossfade time:1 id:Story scale:1.5
+Tears rolled down her face, as she drank the elixir.
+@back black.Crossfade time:1 id:Story scale:1.5
+@wait 2
+@goto ReisenScript

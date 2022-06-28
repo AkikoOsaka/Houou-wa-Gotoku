@@ -1,0 +1,177 @@
+@save
+@printer Bubble.Right pos:50,60 visible:false time:0
+@printer SelfBubble.Left pos:50,60 visible:false time:0
+@char Keine visible:false pos:80,-50
+@char Mokou visible:false pos:20,-50
+
+@back black scale:1.5
+@wait 0.2
+@sfx Breathing fade:5 loop:true
+@sfx Heart fade:2 loop:true
+@sfx City fade:5 loop:true
+@wait 10
+@back Outside id:Room time:2
+@char Mokou.Exhausted pos:20,-50 visible:true
+@spawn Rain params:1000,6
+@stopSfx Breathing fade:5
+@char Mokou.Unhappy
+@sfx Bell
+@wait 2
+@back OutsideLight id:Room time:0
+@wait 3
+@sfx Door
+@wait 4
+@char Keine visible:true pos:80,-50 tint:#000000
+Keine: Mokou?!
+Mokou.Awkward: H-Hey Keine…
+Mokou: Sorry that I-
+Keine: You are completely drenched! Is everything alright?! Are you hurt?
+Keine: Did something happen?
+Mokou.Unhappy: Oh, I-
+Keine: Come in first. I’ll make you some tea.
+@char Keine visible:false time:1
+
+@hidePrinter
+
+@stopSfx City fade:3
+@despawn Rain
+@back Room.CircleReveal id:Room time:0.5
+
+
+Mokou: (So far so good… God, how do I even bring this up to her!)
+Mokou: (Fuck, calm down Mokou, you can do this.)
+Mokou: (Even if you can’t, you came this far. There is no turning back now!)
+Mokou: (...)
+Mokou.Awkward: (I can’t believe I have never been this scared of anything before.)
+Mokou.Concern: (Maybe I should j-)
+@stopSfx Heart fade:2
+@bgm KeineMuted fade:1 intro:KeineIntro
+@char Keine visible:true pos:80,-50 tint:#FFFFFF
+Keine.Default: Here you go.
+Mokou.Awkward: T-thanks!
+Keine.Concern: Have you calmed down a bit?
+Mokou: (Not at all)
+Mokou: Y-yeah...
+Keine: Do you want to explain to me what happened?
+Mokou.Concern: …
+Keine: …
+Mokou: ...Do you remember how we first met?
+Keine.Happy: Haha, that was quite something, wasn’t it?
+Keine.Default: It was when I just started as a teacher.
+Keine: I was doing some shopping around town when suddenly some of my students bumped into me. 
+Keine: They came running out of an alleyway and seemed to be afraid of something. 
+Keine.Surprise: When I looked, I saw you, just casually strolling out of the alleyway, with blood all over your face. 
+Keine: I don’t remember exactly what happened afterwards though.
+Keine.Surprise: I just remember being very angry at the boys and us running away.
+Mokou.Awkward: They tried to mug me, so I told them if they could defeat me, I’d give them a million yen each.
+Mokou.Happy: Of course they took the bait. My plan was to teach them a lesson, so they won’t end up as petty crooks.
+Mokou.Smile: I didn’t expect one of them to whack me with an iron pipe, though.
+Mokou.Happy: It wasn’t too bad, but apparently, me just taking that hit made them scared as hell.
+Mokou.Awkward: When they called you sensei, I was sure I was in a lot of trouble.
+Mokou: But instead, you just straight up headbutted each of them and apologized on their behalf.
+Mokou.Happy: You even offered to help me with my injuries.
+Mokou.Smile: I’ve never seen anything like that. I think nobody has ever gotten my attention that fast.
+Keine.Concern: Well, knowing them, and seeing you, the situation was pretty obvious to me.
+Keine: I couldn’t let that stand. They hurt you badly, after all. You clearly didn’t even try to defend yourself.
+Keine: You just took that beating from them.
+Keine: They didn’t have a single scratch, in contrast.
+Keine: It was just not right. 
+Mokou.Awkward: Ah well, I couldn’t beat up a bunch of kids. It would just be wrong for me to defend myself.
+Mokou.Concern: But, when that police officer came around the corner, I just knew he would probably arrest us.
+Mokou: All he could see is two ladies, one clearly covered in blood, and a bunch of teenagers who are knocked out.
+Mokou: It must’ve looked like we were trying to mug them.
+Mokou.Awkward: Kinda had no other choice but to run.
+Keine.Surprise: Oh yeah… I think I’ve never had to run from the law, before or since.
+Mokou: You shouldn’t make a habit out of it anyway.
+Keine: It was quite the shocker to realize we lived this close to each other and never met before.
+Mokou.Concern: It happens, I mean I do work everywhere and anywhere. 
+Keine.Default: I guess you are right.
+Mokou: ... Y’know, when you looked at me that day, and when you insisted on taking care of my wounds…
+Mokou.Happy: I thought to myself that I’ve never met such a kind person before.
+Mokou.Smile: It was like I met a saint or something.
+Keine.Concern: …
+Mokou.Blush: When I got to know you better though, it was almost like you became more and more kind to me.
+Mokou: Every time I thought you can’t be any more kind, you prove me wrong.
+Mokou.Awkward: Even now, when I’m so unreasonable and just barge into your home in the middle of the night…
+Mokou.Concern: The first thing you did was ask is if I’m okay.
+Keine: I mean, who wouldn’t in a situation like this?
+Mokou.Awkward: Most people wouldn’t. Most people would be mad.
+Mokou.Happy: It’s not like people haven’t been kind to me in the past, but you are special.
+Mokou.Smile: Nobody ever made me feel like this.
+Mokou.Concern: This feeling, wanting to know someone completely. Never wanting to be apart from them.
+Mokou: …I...
+@stopBgm fade:2
+Keine: …
+Mokou.Awkward: I’m sorry, I’m rambling and rambling… but, it’s hard for me to say this.
+@Bgm KeineClimax fade:1 intro:KeineIntro
+Mokou.Concern: I don’t know how or when it happened but…
+Mokou.Blush: I like you, Keine.
+Mokou: More than that, I- I love you.
+Mokou.Awkward: I’m sorry that I’m unreasonable and just unloading this onto you.
+Mokou.Concern: I felt like if I don’t get to say it now, I’ll never get to say it. 
+Keine.Concern: Mokou…
+Mokou.Awkward: I didn’t want to, maybe you hate me now. I know that it’s not ‘normal’ for me to like another woman. 
+Mokou: I didn’t choose this, it just happened to me.
+Keine: ...
+Mokou: If you hate me now, I will leave you alone. I’m sorry to bother you.
+Keine.Sad: No!
+Keine: … No, you don’t have to go. Please.
+Mokou.Blush: …
+Keine: I could never hate you, not for something like this.
+Keine.Concern: I- Honestly, I don’t know how I feel. I’ve never given love much thought.
+Keine: You know, you grow up and everyone tells you that you will find a man someday and fall in love.
+Keine: But it never happened to me. Even when all my friends in school had boyfriends, I didn’t want one.
+Keine: I just didn’t get it. 
+Keine: I thought it was fine this way…
+Keine.Happy: But then I met you and… I don’t know. 
+Keine: All I know is that you are very important to me, Mokou.
+Mokou.Concern: Keine…
+Keine: I don’t know if we are feeling the same way. This is new to me, too.
+Keine: But I know I like you, I want to know more about you, I want to see you be happy…
+Keine: ...and I don’t want to lose you, either.
+Keine: Nobody has ever made me feel this way. So please, don’t go.
+Mokou: It makes me so happy to hear you say that.
+Mokou: But, I feel like, if you went and got married, I don’t get to be close to you anymore.
+Mokou: Not like this, at least.
+Mokou: You’d be busy with your new family. I could be your best friend and come visit you.
+Mokou: I wish I could say it would be enough for me, but I know it won’t be.
+Mokou: We couldn’t get closer. It feels like that would be impossible.
+Mokou: ...And that scares me...
+Keine.Sad: …
+Keine.Concern: This whole arranged marriage business… That was my parents’ idea.
+Keine: I didn’t want to go along with it, to begin with. It just felt like I had no choice in the matter.
+Keine: and… given what you said, and what I feel… 
+Keine: I don’t think I will play along with that arrangement anymore.
+Mokou: R-Really?
+Keine.Happy: You are more important to me, Mokou. At least I think so.
+Keine.Concern: And I mean, so far they didn’t even pick out a nakodo.
+Keine: They just sprung that idea on me last week.
+Keine: I haven’t given them an answer yet.
+Keine: So no harm done.
+Mokou.Concern: ...
+Keine: I… I’ll call my parents tomorrow and tell them I’ve met someone. 
+Mokou.Blush: Does that mean-
+Keine.Happy: I want to give this a chance. I want to give you a chance.
+Keine: This is completely new to me, and I don’t understand my feelings for you very well yet.
+Keine: But... I want to see where this goes.
+Mokou.Concern: Won’t they be mad?
+Keine: They will understand, I’m sure.
+Keine: If I already have someone, I don’t need to go along with an arranged marriage, right?
+Mokou: But telling them that you have a girlfriend is a little…
+Keine.Surprise: Girlf-
+Keine.Happy: Uhm...I’ll just tell them I’ve met ‘someone’. They don’t need to know more than that. For now, at least...
+Keine.Concern: Besides, I’ve played the “good girl” my entire life.
+Keine: I think I can disobey this one time.
+Keine: I can be rebellious and break the rules every once in a while.
+Keine.Happy: But just because it’s for you.
+Mokou.Blush: …thank you, Keine.
+
+@back black.Crossfade time:1 id:Story scale:1.5
+@char Keine visible:false time:1
+@char Mokou visible:false time:1
+Keine: Mokou.
+@hidePrinter
+@stopBgm fade:5
+
+@goto CreditScript
+@stop
